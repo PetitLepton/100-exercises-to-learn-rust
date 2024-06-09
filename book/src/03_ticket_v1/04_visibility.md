@@ -46,4 +46,4 @@ The `active` field, instead, is private and can only be accessed from within the
 
 ## References
 
-- The exercise for this section is located in `exercises/03_ticket_v1/04_visibility`
+The exercise for this section is located in `exercises/03_ticket_v1/04_visibility`
