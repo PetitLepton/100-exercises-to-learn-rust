@@ -1,4 +1,4 @@
-use std::cmp::PartialEq;
+use std::{cmp::PartialEq, iter::OnceWith};
 
 struct Ticket {
     title: String,
@@ -7,8 +7,31 @@ struct Ticket {
 }
 
 // TODO: Implement the `PartialEq` trait for `Ticket`.
+// impl PartialEq for Ticket {
+//     fn eq(&self, other: &Ticket) -> bool {
+//         (self.title == other.title)
+//             && (self.description == other.description)
+//             && (self.status == other.status)
+//     }
+// }
 
-impl PartialEq for Ticket {}
+// Implementation with destructuring
+impl PartialEq for Ticket {
+    fn eq(&self, other: &Ticket) -> bool {
+        let Ticket {
+            title,
+            description,
+            status,
+        } = self;
+        let Ticket {
+            title: other_title,
+            description: other_description,
+            status: other_status,
+        } = other;
+
+        (title == other_title) && (description == other_description) && (status == other_status)
+    }
+}
 
 #[cfg(test)]
 mod tests {
